@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
-#include "header.h"
+#include "HUMANS.h"
+#include "ANIMALS.h"
+#include "MENEGER.h"
+#include "ZOOPARKI.h"
 
 int main() {
     ZOOPARKI Dari("Dari", "Ukraine");

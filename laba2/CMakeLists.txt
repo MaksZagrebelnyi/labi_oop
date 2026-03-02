@@ -4,4 +4,8 @@ project(untitled2)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(untitled2 main.cpp
-        header.h)
+        header.h
+        ZOOPARKI.h
+        MENEGER.h
+        ANIMALS.h
+        HUMANS.h)
