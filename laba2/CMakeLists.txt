@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(untitled2 main.cpp
         header.h
-        ZOOPARKI.h
-        MENEGER.h
-        ANIMALS.h
-        HUMANS.h)
+        zoo.h
+        manager.h
+        animal.h
+        human.h)

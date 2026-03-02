@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-#include "HUMANS.h"
-#include "ANIMALS.h"
-#include "MENEGER.h"
-#include "ZOOPARKI.h"
+#include "HUMAN.h"
+#include "ANIMAL.h"
+#include "Manager.h"
+#include "ZOO.h"
 
 int main() {
     ZOOPARKI Dari("Dari", "Ukraine");

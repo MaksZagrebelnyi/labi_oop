@@ -17,7 +17,7 @@ public:
     Humans(string n = "UnknownHuman", int a = 0) : name(n), age(a) {}
 
     void goo() {
-        cout << name << "goo to Zoopark" << endl;
+        cout << name << " goo to Zoopark" << endl;
     }
 };
 
