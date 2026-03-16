@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 4.1)
+project(untitled2)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(laba4 main.cpp
+        header.h
+        zoo.h
+        manager.h
+        animal.h
+        human.h
+        manager.cpp)
