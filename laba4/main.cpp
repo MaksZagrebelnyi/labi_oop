@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
     Visitor Lisa("Lisa", 17);
-    Lisa.setInfo("Lisa", 17);
+    Lisa.stInfo("Lisa", 17);
 
 
     Lisa.showInfo();
