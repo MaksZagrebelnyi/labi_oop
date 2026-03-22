@@ -8,5 +8,4 @@ add_executable(untitled2 main.cpp
         zoo.h
         manager.h
         animal.h
-        human.h
         manager.cpp)

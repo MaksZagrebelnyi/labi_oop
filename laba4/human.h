@@ -1,52 +1,39 @@
-#ifndef UNTITLED2_HUMANS_H
-#define UNTITLED2_HUMANS_H
+#ifndef HUMAN_H
+#define HUMAN_H
 
-#include <iostream>
-#include <string>
+#include "LivingBeing.h"
 
-using namespace std;
-
-class Human {
+class Human : public LivingBeing {
 public:
-    string name;
-    int age;
+    Human(string n = "UnknownHuman", int a = 0) : LivingBeing(n, a) {
+        cout << "Human constructor was called" << endl;
+    }
 
-    Human(string n = "UnknownHuman", int a = 0) : name(n), age(a) {}
+    Human(const Human& other) : LivingBeing(other) {
+        cout << "Human copy constructor was called" << endl;
+    }
 
-    void setInfo(string name, int age) {
-        this->name = name;
-        this->age = age;
+    Human& operator=(const Human& rhs) {
+        cout << "Human operator= was called" << endl;
+
+        if (this != &rhs) {
+            LivingBeing::operator=(rhs);
+        }
+
+        return *this;
     }
 
     void goToZoo() const {
-        cout << name << " go to Zoo" << endl;
+        cout << name << " go to the zoo" << endl;
     }
 
-    void showInfo() const {
-        cout << "Human: " << name << ", age = " << age << endl;
+    void showInfo() const override {
+        cout << "Human: " << name << ", age: " << age << endl;
     }
 
-    bool compareObjects(const Human& other) const {
-        if (this == &other) {
-            cout << "Objects are equal" << endl;
-            return true;
-        }
-        cout << "Objects are different" << endl;
-        return false;
+    virtual ~Human() {
+        cout << "Human destructor was called" << endl;
     }
-};
-
-class Visitor : public Human {
-public:
-    Visitor(string n = "UnknownVisitor", int a = 0) : Human(n, a) {}
-    Visitor(string n) : Visitor(n, 0) {}
-    Visitor() : Visitor("UnknownVisitor", 0) {}
-
-    void sayHello() const {
-        cout << name << " say: hello" << endl;
-    }
-
-    ~Visitor() {}
 };
 
 #endif
