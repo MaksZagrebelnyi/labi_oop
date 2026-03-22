@@ -6,5 +6,4 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(untitled2 main.cpp
         header.h
         zoo.h
-        animal.h
 )
