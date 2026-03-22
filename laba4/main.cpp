@@ -1,54 +1,51 @@
 #include <iostream>
 #include <utility>
-#include "HUMAN.h"
-#include "ANIMAL.h"
+#include "Visitor.h"
 #include "Manager.h"
-#include "ZOO.h"
+#include "Animal.h"
+#include "Predator.h"
+#include "Ticket.h"
+#include "Zoo.h"
+#include "ResourceBox.h"
 
 using namespace std;
 
 int main() {
-    Visitor Lisa("Lisa", 17);
-    Lisa.stInfo("Lisa", 17);
+    cout << "Visitor:" << endl;
+    Visitor lisa("Lisa", 17);
+    lisa.goToZoo();
+    lisa.sayHello();
+    lisa.showInfo();
 
+    Animal lion("Lion", "Aleksey", 5, 120, "male");
+    Animal copyLion = lion;
+    copyLion.showInfo();
 
-    Lisa.showInfo();
-    Lisa.compareObjects(Lisa);
+    Animal tiger("Tiger", "Sherhan", 6, 200, "male");
+    tiger = lion;
+    tiger.showInfo();
 
-    const Visitor constVisitor("Max", 18);
-    constVisitor.showInfo();
-    constVisitor.sayHello();
-    constVisitor.goToZoo();
+    Predator wolf("Wolf", "Yarik", 4, 80, "male");
+    wolf.hunt();
+    wolf.showInfo();
 
-    cout << "\n try copy constructor " << endl;
-    Animal Leshaa("Lion", "Aleksey", 120, "male");
-    Animal copyAnimal = Leshaa;
-    cout << copyAnimal << endl;
+    Manager manager1("Anton", 35, 2000);
+    Manager manager2("Oleg", 40, 2500);
+    Manager manager3 = manager1;
+    manager2 = manager1;
+    manager1.showInfo();
+    manager2.showInfo();
+    manager3.showInfo();
+    cout << "Managers amount: " << Manager::getAmountOfManagers() << endl;
 
-    cout << "\ntry move constructor" << endl;
-    Zoo Dari("Dari", "Ukraine", 123, 20000);
-    Zoo movedZoo = move(Dari);
-    movedZoo.openZoo();
-    movedZoo.showPrice();
+    Ticket ticket(150);
+    Zoo zoo1("Dari", "Ukraine", manager1, lion, ticket);
+    zoo1.showZoo();
 
-    cout << "\n try static " << endl;
-    Manager manager1;
-    Manager manager2(25, "Oleg");
-    manager1.printInfo();
-    manager2.printInfo();
-    cout << "Amount of managers = " << Manager::getAmountOfManagers() << endl;
-
-    cout << "\ntry unary and binary operators" << endl;
-    ++movedZoo;
-    movedZoo.showPrice();
-
-    Zoo expensiveZoo = movedZoo + 50;
-    expensiveZoo.showPrice();
-
-    Animal inputAnimal;
-    cout << "Enter: type name weight gender" << endl;
-    cin >> inputAnimal;
-    cout << inputAnimal << endl;
+    ResourceBox box1(500);
+    ResourceBox box2 = std::move(box1);
+    box1.showData();
+    box2.showData();
 
     return 0;
 }

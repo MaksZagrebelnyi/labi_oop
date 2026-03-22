@@ -6,4 +6,13 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(untitled2 main.cpp
         header.h
         zoo.h
-)
+        manager.h
+        animal.h
+        human.h
+        manager.cpp
+        livingbeing.h
+        visitor.h
+        worker.h
+        predator.h
+        ticket.h
+        resourcebox.h)

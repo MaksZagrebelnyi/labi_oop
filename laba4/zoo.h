@@ -1,60 +1,44 @@
-#ifndef UNTITLED2_ZOO_H
-#define UNTITLED2_ZOO_H
+#ifndef ZOO_H
+#define ZOO_H
 
-#include <iostream>
-#include <string>
-#include <utility>
-
-using namespace std;
+#include "Manager.h"
+#include "Animal.h"
+#include "Ticket.h"
 
 class Zoo {
 private:
-    int square;
-    int price;
+    string name;
+    string place;
+    Manager manager;
+    Animal animal;
+    Ticket ticket;
 
 public:
-    string place;
-    string name;
-
-    Zoo(string name = "Unknown", string place = "Ukraine", int price = 10, int square = 20000)
-        : square(square), price(price), place(place), name(name) {}
-
-    Zoo(Zoo&& other) : square(other.square), price(other.price), place(move(other.place)), name(move(other.name)) {
-        cout << "Move constructor was called" << endl;
-        other.square = 0;
-        other.price = 0;
-        other.place = "moved_from";
-        other.name = "moved_from";
+    Zoo(string n = "UnknownZoo",
+        string p = "UnknownPlace",
+        const Manager& m = Manager(),
+        const Animal& a = Animal(),
+        const Ticket& t = Ticket())
+        : name(n), place(p), manager(m), animal(a), ticket(t) {
+        cout << "Zoo constructor was called" << endl;
     }
 
-    void showPrice() const {
-        cout << price << " - ticket price" << endl;
+    Zoo(string n, string p) : Zoo(n, p, Manager(), Animal(), Ticket()) {}
+
+    Zoo(string n) : Zoo(n, "UnknownPlace", Manager(), Animal(), Ticket()) {}
+
+    Zoo() : Zoo("UnknownZoo", "UnknownPlace", Manager(), Animal(), Ticket()) {}
+
+    void showZoo() const {
+        cout << "Zoo: " << name << ", place: " << place << endl;
+        manager.showInfo();
+        animal.showInfo();
+        ticket.showPrice();
     }
 
-    void setPrice(int price) {
-        this->price = price;
-        cout << "price = " << price << endl;
+    ~Zoo() {
+        cout << "Zoo destructor was called" << endl;
     }
-
-    void closeZoo() const {
-        cout << "zoo " << name << " close" << endl;
-    }
-
-    void openZoo() const {
-        cout << name << " open" << endl;
-    }
-
-    Zoo& operator++() {
-        ++price;
-        return *this;
-    }
-
-    Zoo operator+(int value) const {
-        Zoo temp(name, place, price + value, square);
-        return temp;
-    }
-
-    ~Zoo() {}
 };
 
 #endif
