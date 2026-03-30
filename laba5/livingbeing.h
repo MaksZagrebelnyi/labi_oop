@@ -39,6 +39,12 @@ public:
         cout << "Name: " << name << ", age: " << age << endl;
     }
 
+    virtual string getCategory() const {
+        return "LivingBeing";
+    }
+
+    virtual void describe() const = 0;
+    
     virtual ~LivingBeing() {
         cout << "LivingBeing destructor was called" << endl;
     }
