@@ -23,9 +23,43 @@ public:
              << ", gender: " << gender << endl;
     }
 
-    ~Predator() {
+    string getCategory() const override {
+        return "Predator";
+    }
+
+    void describe() const override {
+        cout << "Predator: " << name << " is a dangerous " << type
+             << ", weight: " << weight << "kg. Beware!" << endl;
+    }
+
+    virtual ~Predator() {
         cout << "Predator destructor was called" << endl;
     }
 };
 
+class WildPredator final : public Predator {
+public:
+    WildPredator(string t = "WildPredator", string n = "UnknownWild",
+                 int a = 0, int w = 0, string g = "Unknown")
+        : Predator(t, n, a, w, g) {
+        cout << "WildPredator constructor was called" << endl;
+    }
+
+    void showInfo() const override {
+        cout << "WildPredator: " << name
+             << ", type: "   << type
+             << ", weight: " << weight << "kg [WILD]" << endl;
+    }
+
+    void describe() const override {
+        cout << "WildPredator: " << name
+             << " - extremely dangerous wild animal!" << endl;
+    }
+
+    ~WildPredator() {
+        cout << "WildPredator destructor was called" << endl;
+    }
+};
+
 #endif
+
