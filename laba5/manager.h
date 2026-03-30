@@ -1,7 +1,7 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 
-#include "Worker.h"
+#include "worker.h"
 
 class Manager : public Worker {
 private:
@@ -21,11 +21,9 @@ public:
 
     Manager& operator=(const Manager& rhs) {
         cout << "Manager operator= was called" << endl;
-
         if (this != &rhs) {
             Worker::operator=(rhs);
         }
-
         return *this;
     }
 

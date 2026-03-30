@@ -1,7 +1,7 @@
 #ifndef HUMAN_H
 #define HUMAN_H
 
-#include "LivingBeing.h"
+#include "livingbeing.h"
 
 class Human : public LivingBeing {
 public:
@@ -15,16 +15,14 @@ public:
 
     Human& operator=(const Human& rhs) {
         cout << "Human operator= was called" << endl;
-
         if (this != &rhs) {
             LivingBeing::operator=(rhs);
         }
-
         return *this;
     }
 
     void goToZoo() const {
-        cout << name << " go to the zoo" << endl;
+        cout << name << " goes to the zoo" << endl;
     }
 
     void showInfo() const override {

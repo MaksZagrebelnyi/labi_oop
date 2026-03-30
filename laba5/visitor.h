@@ -1,7 +1,7 @@
 #ifndef VISITOR_H
 #define VISITOR_H
 
-#include "Human.h"
+#include "human.h"
 
 class Visitor : public Human {
 public:

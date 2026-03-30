@@ -1,7 +1,7 @@
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
-#include "LivingBeing.h"
+#include "livingbeing.h"
 
 class Animal : public LivingBeing {
 public:
@@ -9,12 +9,16 @@ public:
     int weight;
     string gender;
 
-    Animal(string t = "UnknownType", string n = "UnknownAnimal", int a = 0, int w = 0, string g = "Unknown") : LivingBeing(n, a), type(t), weight(w), gender(g) {
+    Animal(string t = "UnknownType", string n = "UnknownAnimal",
+           int a = 0, int w = 0, string g = "Unknown")
+        : LivingBeing(n, a), type(t), weight(w), gender(g) {
         cout << "Animal constructor was called" << endl;
     }
+
     Animal(string n) : Animal("UnknownType", n, 0, 0, "Unknown") {}
     Animal(string n, int w) : Animal("UnknownType", n, 0, w, "Unknown") {}
     Animal(string t, string n, int w) : Animal(t, n, 0, w, "Unknown") {}
+
     Animal(const Animal& other)
         : LivingBeing(other), type(other.type), weight(other.weight), gender(other.gender) {
         cout << "Animal copy constructor was called" << endl;
@@ -22,24 +26,17 @@ public:
 
     Animal& operator=(const Animal& rhs) {
         cout << "Animal operator= was called" << endl;
-
         if (this != &rhs) {
             LivingBeing::operator=(rhs);
-            type = rhs.type;
+            type   = rhs.type;
             weight = rhs.weight;
             gender = rhs.gender;
         }
-
         return *this;
     }
 
-    void setWeight(int w) {
-        this->weight = w;
-    }
-
-    void setGender(string g) {
-        this->gender = g;
-    }
+    void setWeight(int w) { weight = w; }
+    void setGender(string g) { gender = g; }
 
     void makeSound() const {
         cout << name << " makes a sound" << endl;
@@ -47,8 +44,8 @@ public:
 
     void showInfo() const override {
         cout << "Animal: " << name
-             << ", type: " << type
-             << ", age: " << age
+             << ", type: "   << type
+             << ", age: "    << age
              << ", weight: " << weight
              << ", gender: " << gender << endl;
     }
@@ -58,7 +55,7 @@ public:
     }
 
     void describe() const override {
-        cout << "Animal: " << name << " is a " << type
+        cout << "[Animal] " << name << " is a " << type
              << " (" << gender << "), age: " << age
              << ", weight: " << weight << "kg" << endl;
     }

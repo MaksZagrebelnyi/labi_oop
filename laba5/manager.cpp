@@ -1,3 +1,3 @@
-#include "Manager.h"
+#include "manager.h"
 
 int Manager::amountOfManagers = 0;

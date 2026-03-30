@@ -21,18 +21,16 @@ public:
 
     LivingBeing& operator=(const LivingBeing& rhs) {
         cout << "LivingBeing operator= was called" << endl;
-
         if (this != &rhs) {
             name = rhs.name;
-            age = rhs.age;
+            age  = rhs.age;
         }
-
         return *this;
     }
 
     void setData(string name, int age) {
         this->name = name;
-        this->age = age;
+        this->age  = age;
     }
 
     virtual void showInfo() const {

@@ -1,7 +1,7 @@
 #ifndef WORKER_H
 #define WORKER_H
 
-#include "Human.h"
+#include "human.h"
 
 class Worker : public Human {
 public:
@@ -18,12 +18,10 @@ public:
 
     Worker& operator=(const Worker& rhs) {
         cout << "Worker operator= was called" << endl;
-
         if (this != &rhs) {
             Human::operator=(rhs);
             salary = rhs.salary;
         }
-
         return *this;
     }
 

@@ -1,7 +1,7 @@
 #ifndef PREDATOR_H
 #define PREDATOR_H
 
-#include "Animal.h"
+#include "animal.h"
 
 class Predator : public Animal {
 public:
@@ -11,14 +11,14 @@ public:
         cout << "Predator constructor was called" << endl;
     }
 
-    void hunt() const {
-        cout << name << " is hunting" << endl;
+    virtual void hunt() const final {
+        cout << name << " is hunting!" << endl;
     }
 
     void showInfo() const override {
         cout << "Predator: " << name
-             << ", type: " << type
-             << ", age: " << age
+             << ", type: "   << type
+             << ", age: "    << age
              << ", weight: " << weight
              << ", gender: " << gender << endl;
     }
@@ -52,7 +52,7 @@ public:
     }
 
     void describe() const override {
-        cout << "WildPredator: " << name
+        cout << "[WildPredator] " << name
              << " - extremely dangerous wild animal!" << endl;
     }
 
@@ -62,4 +62,3 @@ public:
 };
 
 #endif
-
