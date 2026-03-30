@@ -31,6 +31,14 @@ public:
         cout << "Human: " << name << ", age: " << age << endl;
     }
 
+    string getCategory() const override {
+        return "Human";
+    }
+
+    void describe() const override {
+        cout << "Human: " << name << ", age: " << age << endl;
+    }
+
     virtual ~Human() {
         cout << "Human destructor was called" << endl;
     }

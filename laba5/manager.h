@@ -38,7 +38,16 @@ public:
              << ", salary: " << salary << endl;
     }
 
-    ~Manager() {
+    string getCategory() const override {
+        return "Manager";
+    }
+
+    void describe() const override {
+        cout << "Manager: " << name << ", age: " << age
+             << ", salary: $" << salary << " - manages the zoo" << endl;
+    }
+
+    virtual ~Manager() {
         amountOfManagers--;
         cout << "Manager destructor was called" << endl;
     }

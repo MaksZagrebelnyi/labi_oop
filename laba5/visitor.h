@@ -19,7 +19,16 @@ public:
         cout << "Visitor: " << name << ", age: " << age << endl;
     }
 
-    ~Visitor() {
+    string getCategory() const override {
+        return "Visitor";
+    }
+
+    void describe() const override {
+        cout << ":Visitor: " << name << ", age: " << age
+             << " - visiting the zoo" << endl;
+    }
+
+    virtual ~Visitor() {
         cout << "Visitor destructor was called" << endl;
     }
 };

@@ -32,6 +32,15 @@ public:
              << ", salary: " << salary << endl;
     }
 
+    string getCategory() const override {
+        return "Worker";
+    }
+
+    void describe() const override {
+        cout << "Worker: " << name << ", age: " << age
+             << ", salary: $" << salary << endl;
+    }
+
     virtual ~Worker() {
         cout << "Worker destructor was called" << endl;
     }
