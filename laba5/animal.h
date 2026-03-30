@@ -53,7 +53,17 @@ public:
              << ", gender: " << gender << endl;
     }
 
-    ~Animal() {
+    string getCategory() const override {
+        return "Animal";
+    }
+
+    void describe() const override {
+        cout << "Animal: " << name << " is a " << type
+             << " (" << gender << "), age: " << age
+             << ", weight: " << weight << "kg" << endl;
+    }
+
+    virtual ~Animal() {
         cout << "Animal destructor was called" << endl;
     }
 };

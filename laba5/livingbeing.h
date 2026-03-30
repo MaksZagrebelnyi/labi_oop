@@ -44,7 +44,7 @@ public:
     }
 
     virtual void describe() const = 0;
-    
+
     virtual ~LivingBeing() {
         cout << "LivingBeing destructor was called" << endl;
     }
