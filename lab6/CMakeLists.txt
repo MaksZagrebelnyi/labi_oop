@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(zoo_polymorphism
         main.cpp
         manager.cpp
+        menu.cpp
         livingbeing.h
         animal.h
         predator.h
@@ -18,4 +19,7 @@ add_executable(zoo_polymorphism
         zoo.h
         idescribable.h
         zoo_objects.h
+        zoo_storage.h
+        file_io.h
+        menu.h
 )
